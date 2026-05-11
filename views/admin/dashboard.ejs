@@ -1,0 +1,37 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-admin') %>
+
+<h1 class="h3 mb-4"><%= t('admin.dashboard') %></h1>
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card bg-body-secondary border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h2 class="h6 text-muted">Articole</h2>
+        <p class="display-6 mb-0"><%= stats.posts %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card bg-body-secondary border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h2 class="h6 text-muted">Publicate</h2>
+        <p class="display-6 mb-0"><%= stats.published %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card bg-body-secondary border-0 shadow-sm h-100">
+      <div class="card-body">
+        <h2 class="h6 text-muted">Utilizatori</h2>
+        <p class="display-6 mb-0"><%= stats.users %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="mt-4"><a class="btn btn-primary" href="/admin/articole"><%= t('admin.posts') %></a></p>
+
+<%- include('../partials/footer') %>

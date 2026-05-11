@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark fan-nav border-bottom border-secondary">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/admin">
+      <img src="/favicon.svg" width="36" height="36" alt="">
+      <span class="fw-bold text-cyan">GOLEADOR</span>
+      <span class="text-white-50 small d-none d-md-inline">· <%= t('nav.admin') %></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="adminNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="/admin"><%= t('admin.dashboard') %></a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/articole"><%= t('admin.posts') %></a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/setari"><%= t('admin.settings') %></a></li>
+        <li class="nav-item"><a class="nav-link text-white-50" href="/"><%= t('nav.home') %> (site)</a></li>
+      </ul>
+      <ul class="navbar-nav align-items-md-center gap-2">
+        <li class="nav-item"><span class="navbar-text small text-secondary"><%= sessionUser.name %></span></li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-sm btn-neon" id="themeToggle"><span class="theme-label"><%= t('theme.dark') %></span></button>
+        </li>
+        <li class="nav-item">
+          <form action="/logout" method="post"><button class="btn btn-outline-danger btn-sm" type="submit"><%= t('nav.logout') %></button></form>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main class="container py-4 pb-5 flex-grow-1">

@@ -1,0 +1,51 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-admin') %>
+
+<h1 class="h3 mb-4"><%= post && post.id ? 'Editează articol' : 'Articol nou' %></h1>
+<% if (error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+<form method="post" action="<%= post && post.id ? '/admin/articole/' + post.id + '/editare' : '/admin/articole/nou' %>" class="needs-validation" novalidate>
+  <div class="row g-3">
+    <div class="col-12">
+      <label class="form-label">Titlu</label>
+      <input class="form-control" name="title" required value="<%= post ? post.title : '' %>">
+    </div>
+    <% if (post && post.id) { %>
+    <div class="col-md-6">
+      <label class="form-label">Slug (URL)</label>
+      <input class="form-control" name="slug" value="<%= post.slug %>">
+    </div>
+    <% } %>
+    <div class="<%= post && post.id ? 'col-md-6' : 'col-12' %>">
+      <label class="form-label">Rezumat</label>
+      <input class="form-control" name="excerpt" value="<%= post ? (post.excerpt || '') : '' %>">
+    </div>
+    <div class="col-12">
+      <label class="form-label">Conținut (HTML permis)</label>
+      <textarea class="form-control font-monospace" name="body" rows="12" required><%= post ? post.body : '' %></textarea>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">URL imagine (opțional)</label>
+      <input class="form-control" name="image_url" type="url" placeholder="https://..." value="<%= post ? (post.image_url || '') : '' %>">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Embed video (opțional, HTML iframe)</label>
+      <textarea class="form-control font-monospace" name="video_embed" rows="3" placeholder="&lt;iframe ...&gt;&lt;/iframe&gt;"><%= post ? (post.video_embed || '') : '' %></textarea>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="published" id="pub" <%= !post || post.published ? 'checked' : '' %>>
+        <label class="form-check-label" for="pub">Publicat (vizibil pe site)</label>
+      </div>
+    </div>
+    <div class="col-12 d-flex gap-2">
+      <button type="submit" class="btn btn-primary">Salvează</button>
+      <a href="/admin/articole" class="btn btn-outline-secondary">Înapoi la listă</a>
+    </div>
+  </div>
+</form>
+
+<%- include('../partials/footer') %>

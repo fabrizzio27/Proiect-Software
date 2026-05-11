@@ -1,0 +1,19 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-public') %>
+
+<h1 class="mb-3"><%= t('contact.title') %></h1>
+<p class="lead"><%= t('contact.intro') %></p>
+<ul class="mb-4">
+  <li><%= t('contact.address') %></li>
+  <li><%= t('contact.email') %></li>
+</ul>
+<h2 class="h5"><%= t('contact.videoTitle') %></h2>
+<div class="embed-responsive mb-4">
+  <iframe src="https://www.youtube.com/embed/pRpeEdMmmQ0" title="Fotbal — clip muzical Cupa Mondială" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<%- include('../partials/footer') %>

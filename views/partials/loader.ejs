@@ -1,0 +1,21 @@
+<script>window.__GOLEADOR_T0 = typeof performance !== 'undefined' ? performance.now() : Date.now();</script>
+<div id="goleador-loader" class="goleador-loader" aria-busy="true" aria-label="<%= t('loader.aria') %>">
+  <div class="loader-pitch" aria-hidden="true"></div>
+  <div class="loader-center-ring" aria-hidden="true"></div>
+  <div class="loader-content">
+    <div class="loader-ball-stage">
+      <div class="loader-ball-shadow" aria-hidden="true"></div>
+      <div class="loader-ball" aria-hidden="true">
+        <svg viewBox="0 0 64 64" class="loader-ball-svg" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="30" fill="#f8fafc"/>
+          <path fill="#0f172a" d="M32 6 L44 18 L58 20 L50 32 L54 46 L32 40 L10 46 L14 32 L6 20 L20 18 Z" opacity=".9"/>
+          <path fill="#0f172a" d="M32 24 L40 32 L36 44 L28 44 L24 32 Z" opacity=".75"/>
+        </svg>
+      </div>
+    </div>
+    <p class="loader-brand"><%= t('site.name') %></p>
+    <p class="loader-line"><%= t('loader.line') %></p>
+    <div class="loader-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="loader-progress" aria-hidden="true"><span class="loader-progress-bar"></span></div>
+  </div>
+</div>

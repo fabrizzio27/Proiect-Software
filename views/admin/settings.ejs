@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-admin') %>
+
+<h1 class="h3 mb-4"><%= t('admin.settings') %></h1>
+<% if (message) { %><div class="alert alert-success"><%= message %></div><% } %>
+<% if (error) { %><div class="alert alert-danger"><%= error %></div><% } %>
+
+<div class="card shadow-sm mb-4" style="max-width: 32rem;">
+  <div class="card-body">
+    <h2 class="h6">Profil</h2>
+    <p class="mb-1"><strong>Nume:</strong> <%= user.name %></p>
+    <p class="mb-1"><strong>E-mail:</strong> <%= user.email %></p>
+    <p class="mb-0 small text-muted">Rol: <%= user.role %></p>
+  </div>
+</div>
+
+<div class="card shadow-sm" style="max-width: 32rem;">
+  <div class="card-body">
+    <h2 class="h6 mb-3">Schimbă parola</h2>
+    <form method="post" action="/admin/setari/parola">
+      <div class="mb-3">
+        <label class="form-label">Parola curentă</label>
+        <input class="form-control" type="password" name="current" required autocomplete="current-password">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Parola nouă</label>
+        <input class="form-control" type="password" name="password" required minlength="6" autocomplete="new-password">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirmă parola nouă</label>
+        <input class="form-control" type="password" name="password2" required minlength="6" autocomplete="new-password">
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizează</button>
+    </form>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

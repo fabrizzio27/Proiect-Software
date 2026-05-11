@@ -1,0 +1,74 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-public') %>
+
+<section class="home-hero glass-panel p-4 p-md-5 mb-5 position-relative overflow-hidden">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="position-relative">
+    <p class="text-cyan text-uppercase small fw-bold tracking-wide mb-2"><%= t('home.tagline') %></p>
+    <h1 class="display-5 fw-bold mb-3 hero-title"><%= t('home.heroTitle') %></h1>
+    <p class="lead text-secondary-emphasis mb-3"><%= t('home.inspire') %></p>
+    <p class="mb-0 fs-6 text-body-secondary"><%= t('home.inspire2') %></p>
+    <div class="mt-4 d-flex flex-wrap gap-2">
+      <a href="/blog" class="btn btn-neon btn-lg"><%= t('nav.blog') %></a>
+      <a href="/galerie" class="btn btn-outline-neon btn-lg"><%= t('nav.gallery') %></a>
+    </div>
+  </div>
+</section>
+
+<section class="mb-5">
+  <h2 class="h4 fw-bold text-cyan mb-2"><%= t('home.hubTitle') %></h2>
+  <p class="text-body-secondary mb-4"><%= t('home.hubLead') %></p>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <a href="https://www.digisport.ro" target="_blank" rel="noopener noreferrer" class="text-decoration-none hub-card d-block rounded-4 overflow-hidden glass-panel h-100">
+        <div class="hub-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800" class="hub-card-img" alt="">
+          <span class="hub-card-badge"><%= t('home.hubDigi') %></span>
+        </div>
+        <div class="p-3 text-center">
+          <span class="btn btn-neon w-100"><%= t('home.hubDigiBtn') %></span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="https://sport.ro" target="_blank" rel="noopener noreferrer" class="text-decoration-none hub-card d-block rounded-4 overflow-hidden glass-panel h-100">
+        <div class="hub-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800" class="hub-card-img" alt="">
+          <span class="hub-card-badge"><%= t('home.hubSport') %></span>
+        </div>
+        <div class="p-3 text-center">
+          <span class="btn btn-neon w-100"><%= t('home.hubSportBtn') %></span>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="https://www.eurosport.com" target="_blank" rel="noopener noreferrer" class="text-decoration-none hub-card d-block rounded-4 overflow-hidden glass-panel h-100">
+        <div class="hub-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1517649763962-0a623f40d968?w=800" class="hub-card-img" alt="">
+          <span class="hub-card-badge"><%= t('home.hubEuro') %></span>
+        </div>
+        <div class="p-3 text-center">
+          <span class="btn btn-neon w-100"><%= t('home.hubEuroBtn') %></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="glass-panel p-4 rounded-4 border-neon">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-7">
+      <h2 class="h5 text-cyan text-uppercase mb-2"><%= t('home.localTitle') %></h2>
+      <p class="mb-0 fs-5"><%= t('home.localBody') %></p>
+    </div>
+    <div class="col-lg-5 text-center">
+      <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=900" class="img-fluid rounded-4 shadow-neon" alt="">
+    </div>
+  </div>
+</section>
+
+<%- include('../partials/footer') %>

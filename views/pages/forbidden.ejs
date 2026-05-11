@@ -1,0 +1,12 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-public') %>
+
+<h1 class="h2 text-danger">403</h1>
+<p class="lead"><%= t('forbidden.lead') %></p>
+<p><a href="/" class="btn btn-primary"><%= t('nav.home') %></a></p>
+
+<%- include('../partials/footer') %>

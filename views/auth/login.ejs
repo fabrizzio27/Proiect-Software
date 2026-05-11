@@ -1,0 +1,36 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-public') %>
+
+<div class="row justify-content-center">
+  <div class="col-md-5 col-lg-4">
+    <h1 class="h3 mb-3"><%= t('nav.login') %></h1>
+    <p class="small text-muted"><%= t('login.hint') %></p>
+    <% if (typeof registered !== 'undefined' && registered) { %>
+      <div class="alert alert-success"><%= t('auth.registered') %></div>
+    <% } %>
+    <% if (error) { %>
+      <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <form method="post" action="/login" class="card shadow-sm fan-card border-0">
+      <div class="card-body">
+        <input type="hidden" name="next" value="<%= typeof nextUrl !== 'undefined' ? nextUrl : '/' %>">
+        <div class="mb-3">
+          <label class="form-label" for="email"><%= t('login.email') %></label>
+          <input class="form-control" type="email" name="email" id="email" required autocomplete="username">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="password"><%= t('login.password') %></label>
+          <input class="form-control" type="password" name="password" id="password" required autocomplete="current-password">
+        </div>
+        <button class="btn btn-neon w-100" type="submit"><%= t('login.submit') %></button>
+      </div>
+    </form>
+    <p class="small text-muted mt-3 mb-0"><%= t('login.demo') %></p>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

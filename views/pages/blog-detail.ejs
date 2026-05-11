@@ -1,0 +1,23 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-public') %>
+
+<article class="glass-panel rounded-4 p-4 p-md-5">
+  <header class="mb-3">
+    <h1 class="h2 hero-title"><%= post.title %></h1>
+    <p class="text-body-secondary small"><%= post.created_at %></p>
+  </header>
+  <% if (post.image_url) { %>
+    <img src="<%= post.image_url %>" class="img-fluid rounded-4 mb-3 shadow-neon" alt="">
+  <% } %>
+  <% if (post.video_embed) { %>
+    <div class="ratio ratio-16x9 mb-3"><%- post.video_embed %></div>
+  <% } %>
+  <div class="blog-body"><%- post.body %></div>
+  <p class="mt-4 mb-0"><a href="/blog" class="btn btn-outline-neon btn-sm">← <%= t('blog.title') %></a></p>
+</article>
+
+<%- include('../partials/footer') %>

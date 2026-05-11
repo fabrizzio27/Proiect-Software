@@ -1,0 +1,22 @@
+{
+  "name": "psw-site-cms",
+  "version": "1.0.0",
+  "description": "Site public + admin CMS (blog) cu autentificare SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.6.0",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "serverless-http": "^3.2.0"
+  }
+}

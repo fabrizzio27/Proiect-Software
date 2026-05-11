@@ -1,0 +1,45 @@
+<%- include('../partials/head') %>
+<script>
+  window.__themeLightLabel = '<%= t("theme.light") %>';
+  window.__themeDarkLabel = '<%= t("theme.dark") %>';
+</script>
+<%- include('../partials/nav-admin') %>
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+  <h1 class="h3 mb-0"><%= t('admin.posts') %></h1>
+  <a class="btn btn-success" href="/admin/articole/nou">+ Articol nou</a>
+</div>
+<div class="table-responsive shadow-sm rounded">
+  <table class="table table-striped table-hover align-middle mb-0">
+    <thead class="table-light">
+      <tr>
+        <th>Titlu</th>
+        <th>Slug</th>
+        <th>Publicat</th>
+        <th>Actualizat</th>
+        <th class="text-end">Acțiuni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.forEach(function (p) { %>
+        <tr>
+          <td><a href="/blog/<%= p.slug %>" target="_blank" rel="noopener"><%= p.title %></a></td>
+          <td><code class="small"><%= p.slug %></code></td>
+          <td><%= p.published ? 'Da' : 'Nu' %></td>
+          <td class="small text-muted"><%= p.updated_at %></td>
+          <td class="text-end text-nowrap">
+            <a class="btn btn-sm btn-outline-primary" href="/admin/articole/<%= p.id %>/editare">Editează</a>
+            <form class="d-inline" action="/admin/articole/<%= p.id %>/stergere" method="post" onsubmit="return confirm('Ștergi articolul?');">
+              <button type="submit" class="btn btn-sm btn-outline-danger">Șterge</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+<% if (!posts.length) { %>
+  <p class="text-muted mt-3">Niciun articol. <a href="/admin/articole/nou">Creează primul</a>.</p>
+<% } %>
+
+<%- include('../partials/footer') %>
