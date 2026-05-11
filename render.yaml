@@ -1,14 +1,13 @@
-# Render Web Service: un singur proces Node → navigare rapidă (recomandat vs serverless Vercel + SQLite).
-# Dashboard: https://dashboard.render.com → New → Blueprint → conectează repo-ul.
 services:
   - type: web
-    name: goleador
+    name: pswfabi
     runtime: node
-    region: frankfurt
     plan: free
+    region: oregon
+    branch: main
+    repo: https://github.com/fabrizzio27/Proiect-Software.git
     buildCommand: npm install
     startCommand: node server.js
-    healthCheckPath: /
     envVars:
       - key: NODE_ENV
         value: production
