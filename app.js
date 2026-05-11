@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const compression = require('compression');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
@@ -11,14 +12,16 @@ const { db } = require('./lib/database');
 const { isAdminUser } = require('./middleware/auth');
 
 const app = express();
+app.disable('x-powered-by');
 
-if (process.env.VERCEL === '1') {
+if (process.env.VERCEL === '1' || process.env.RENDER === 'true' || process.env.RAILWAY_ENVIRONMENT) {
   app.set('trust proxy', 1);
 }
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(compression());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,7 +35,11 @@ app.use(
     cookie: {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       sameSite: 'lax',
-      secure: process.env.VERCEL === '1' || process.env.NODE_ENV === 'production',
+      secure:
+        process.env.VERCEL === '1' ||
+        process.env.RENDER === 'true' ||
+        process.env.RAILWAY_ENVIRONMENT ||
+        process.env.NODE_ENV === 'production',
     },
   })
 );

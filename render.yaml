@@ -1,0 +1,16 @@
+# Render Web Service: un singur proces Node → navigare rapidă (recomandat vs serverless Vercel + SQLite).
+# Dashboard: https://dashboard.render.com → New → Blueprint → conectează repo-ul.
+services:
+  - type: web
+    name: goleador
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
