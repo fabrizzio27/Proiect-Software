@@ -14,7 +14,12 @@ const { isAdminUser } = require('./middleware/auth');
 const app = express();
 app.disable('x-powered-by');
 
-if (process.env.VERCEL === '1' || process.env.RENDER === 'true' || process.env.RAILWAY_ENVIRONMENT) {
+if (
+  process.env.VERCEL === '1' ||
+  process.env.RENDER === 'true' ||
+  process.env.RAILWAY_ENVIRONMENT ||
+  process.env.NODE_ENV === 'production'
+) {
   app.set('trust proxy', 1);
 }
 
@@ -71,6 +76,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(authRoutes);
 app.use(publicRoutes);
 app.use('/admin', adminRoutes);
+
+app.get('/health', (req, res) => {
+  res.status(200).type('text/plain').send('ok');
+});
 
 app.get('/signup', (req, res) => res.redirect('/inregistrare'));
 
